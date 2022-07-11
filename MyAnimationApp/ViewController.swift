@@ -5,15 +5,24 @@
 //  Created by Vadim Shinkarenko on 11.07.2022.
 //
 
-import UIKit
+import Spring
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet var animationView: SpringView!
+    @IBOutlet var animationTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+//        animationTextField.text = animationView.animation
     }
 
-
+    @IBAction func animationButtonPressed(_ sender: UIButton) {
+        animationView.animation = Spring.AnimationPreset.flipY.rawValue
+        animationTextField.text = animationView.animation
+        animationView.animate()
+    }
+    
 }
 
